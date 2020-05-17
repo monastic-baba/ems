@@ -3,13 +3,13 @@ package com.lnt.ems.Entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="engineer")
+@Table(name="engineers")
 public class Engineer {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
-    private Integer id;
+    private int id;
 
     @Column(name="first_name")
     private String firstName;
@@ -20,17 +20,17 @@ public class Engineer {
     public Engineer() {
     }
 
-    public Engineer(Integer id, String firstName, String lastName) {
+    public Engineer(int id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 

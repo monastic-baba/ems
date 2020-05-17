@@ -18,7 +18,11 @@ public class TestConnection {
 
             Connection myConn = DriverManager.getConnection(url, usr, pass);
 
-            System.out.println("Connection Successfull!!!!!!!!");
+            if(!myConn.isClosed()){
+                System.out.println("Connection is not closed");
+            }
+
+            System.out.println("Connection Akash Successfull!!!!!!!!");
 
 
         }

@@ -4,19 +4,19 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="request")
+@Table(name="requests")
 public class Request {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
-    private String id;
+    private int id;
 
     @Column(name="machine_id")
-    private String machineId;
+    private int machineId;
 
     @Column(name="engineer_id")
-    private String engineerId;
+    private int engineerId;
 
     @Column(name="status")
     private String status;
@@ -32,7 +32,7 @@ public class Request {
     public Request() {
     }
 
-    public Request(String id, String machineId, String engineerId, String status, String urgency, Date startDate, Date endDate) {
+    public Request(int id, int machineId, int engineerId, String status, String urgency, Date startDate, Date endDate) {
         this.id = id;
         this.machineId = machineId;
         this.engineerId = engineerId;
@@ -42,27 +42,27 @@ public class Request {
         this.endDate = endDate;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getMachineId() {
+    public int getMachineId() {
         return machineId;
     }
 
-    public void setMachineId(String machineId) {
+    public void setMachineId(int machineId) {
         this.machineId = machineId;
     }
 
-    public String getEngineerId() {
+    public int getEngineerId() {
         return engineerId;
     }
 
-    public void setEngineerId(String engineerId) {
+    public void setEngineerId(int engineerId) {
         this.engineerId = engineerId;
     }
 

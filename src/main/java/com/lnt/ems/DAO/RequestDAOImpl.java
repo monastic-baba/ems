@@ -8,22 +8,26 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 @Repository
 public class RequestDAOImpl implements RequestDAO {
 
-    //need to inject the session factory
+    private EntityManager entityManager;
+
     @Autowired
-    private SessionFactory sessionFactory;
+    public RequestDAOImpl(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
     @Override
     public List<Request> getRequests() {
         // 1. get current hibernate session
         // 2. create a query
         // 3. execute query and get result list
-        Session currentSession = sessionFactory.getCurrentSession();
-        Query<Request> theQuery = currentSession.createQuery("from Requests order by lastName", Request.class);
+        Session currentSession = entityManager.unwrap(Session.class);
+        Query<Request> theQuery = currentSession.createQuery("from Request order by lastName", Request.class);
         List<Request> requests = theQuery.getResultList();
 
         return requests;
@@ -34,7 +38,7 @@ public class RequestDAOImpl implements RequestDAO {
 
         // 1. get the current hibernate session
         // 2. save the request
-        Session currentSession = sessionFactory.getCurrentSession();
+        Session currentSession = entityManager.unwrap(Session.class);
         currentSession.saveOrUpdate(theRequest);
     }
 
@@ -43,7 +47,7 @@ public class RequestDAOImpl implements RequestDAO {
 
         // 1. get the current hibernate session
         // 2. now retrieve/read from database using the primary key
-        Session currentSession = sessionFactory.getCurrentSession();
+        Session currentSession = entityManager.unwrap(Session.class);
         Request theRequest = currentSession.get(Request.class, theId);
 
         return theRequest;
@@ -55,7 +59,7 @@ public class RequestDAOImpl implements RequestDAO {
 
         // 1. get the current hibernate session
         // 2. delete object with primary key
-        Session currentSession = sessionFactory.getCurrentSession();
+        Session currentSession = entityManager.unwrap(Session.class);
         Query theQuery = currentSession.createQuery("delete from Request where id=:requestId");
         theQuery.setParameter("requestId", theId);
         theQuery.executeUpdate();

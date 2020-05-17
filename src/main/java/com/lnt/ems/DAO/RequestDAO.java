@@ -15,5 +15,4 @@ public interface RequestDAO {
     public List<Request> listRejected(int theEngineerId);
     public List<Request> listClosed(int theEngineerId);
 
-
 }
