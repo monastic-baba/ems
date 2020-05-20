@@ -12,17 +12,17 @@ import java.util.List;
 @RestController
 public class RestTypeController {
 
-    private EngineerService theengineerService;
+    private EngineerService theEngineerService;
 
     @Autowired
     public RestTypeController(EngineerService engineerService){
-        theengineerService = engineerService;
+        theEngineerService = engineerService;
     }
 
-    @RequestMapping(method = RequestMethod.GET,value = "/")
+    @RequestMapping(method = RequestMethod.GET,value = "/list")
     public List<Engineer> healthCheck()
     {
-        return theengineerService.getEngineers();
+        return theEngineerService.getEngineers();
     }
 
     

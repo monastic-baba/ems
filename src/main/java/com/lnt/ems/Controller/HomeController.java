@@ -13,7 +13,10 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    @RequestMapping("/hello")
+    @Autowired
+    private EngineerService engineerService;
+
+    @RequestMapping("/")
     public String hello() {
         return "index";
     }
@@ -22,6 +25,34 @@ public class HomeController {
     public String welcome() {
         return "bootstrap";
     }
+
+    @RequestMapping("/addOrDeleteEngineer")
+    public String engineerAddForm(Model theModel){
+
+        Engineer newEngineer = new Engineer();
+
+        theModel.addAttribute("engineer", newEngineer);
+
+        return "engineer-form";
+
+    }
+
+    @PostMapping("/deleteEngineer")
+    public String deleteEngineer(@ModelAttribute("engineer") Engineer theEngineer){
+
+        engineerService.deleteEngineer(theEngineer.getId());
+
+        return  "redirect:/list";
+    }
+
+    @PostMapping("/saveEngineer")
+    public String saveEngineer(@ModelAttribute("engineer") Engineer theEngineer){
+
+        engineerService.saveEngineer(theEngineer);
+
+        return  "redirect:/list";
+    }
+
 
 
 

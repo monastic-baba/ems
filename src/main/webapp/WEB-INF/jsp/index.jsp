@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,5 +8,11 @@
 </head>
 <body>
     <h2> Hello again !!!!!</h2>
+
+    <input type="button" value="Add or Delete Engineer"
+    				   onclick="window.location.href='addOrDeleteEngineer'; return false;"
+    				   class="add-button"
+    			/>
+
 </body>
 </html>
