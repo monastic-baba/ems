@@ -27,7 +27,7 @@ public class MachineDAOImpl implements MachineDAO {
         // 2. create a query
         // 3. execute query and get result list
         Session currentSession = entityManager.unwrap(Session.class);
-        Query<Machine> theQuery = currentSession.createQuery("from Machine order by lastName", Machine.class);
+        Query<Machine> theQuery = currentSession.createQuery("from Machine order by id", Machine.class);
         List<Machine> machines = theQuery.getResultList();
 
         return machines;

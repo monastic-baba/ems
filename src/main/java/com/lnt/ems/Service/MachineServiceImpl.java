@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class MachineServiceImpl implements MachineService {
 
-    // need to inject Engineer DAO
+    // need to inject Machine DAO
     @Autowired
     private MachineDAO machineDAO;
 

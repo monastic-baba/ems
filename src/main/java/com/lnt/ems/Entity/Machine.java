@@ -23,6 +23,11 @@ public class Machine {
     public Machine() {
     }
 
+    public Machine(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Machine(int id, String name, boolean isEngaged, boolean isRequested) {
         this.id = id;
         this.name = name;

@@ -32,6 +32,14 @@ public class Request {
     public Request() {
     }
 
+    public Request(int id, int machineId, int engineerId) {
+        this.id = id;
+        this.machineId = machineId;
+        this.engineerId = engineerId;
+        this.status = "requested";
+        this.urgency = "low";
+    }
+
     public Request(int id, int machineId, int engineerId, String status, String urgency, Date startDate, Date endDate) {
         this.id = id;
         this.machineId = machineId;

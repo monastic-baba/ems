@@ -9,10 +9,16 @@
 <body>
     <h2> Hello again !!!!!</h2>
 
+    <p> Engineer Actions </p>
     <input type="button" value="Add or Delete Engineer"
-    				   onclick="window.location.href='addOrDeleteEngineer'; return false;"
+    				   onclick="window.location.href='admin/addOrDeleteEngineer'; return false;"
     				   class="add-button"
     			/>
 
+    <p> Machine Actions </p>
+    <input type="button" value="Add or Delete Machine"
+        				   onclick="window.location.href='admin/addOrDeleteMachine'; return false;"
+        				   class="add-button"
+        			/>
 </body>
 </html>

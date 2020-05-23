@@ -6,26 +6,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Engineer!</title>
+    <title>Machine!</title>
 </head>
 
 
 <body>
-    <h3> New Engineer Form !!!!!</h3>
+    <h3> New Machine Form !!!!!</h3>
 </body>
 
-    <form:form action="saveEngineer" modelAttribute="engineer" method="POST">
+    <form:form action="saveMachine" modelAttribute="machine" method="POST">
 
         <table>
             <tbody>
                 <tr>
-                    <td><label>First Name:</label></td>
-                    <td><form:input path="firstName" /></td>
-                </tr>
-
-                <tr>
-                    <td><label>Last Name:</label></td>
-                    <td><form:input path="lastName" /></td>
+                    <td><label>Name:</label></td>
+                    <td><form:input path="name" /></td>
                 </tr>
 
                 <tr>
@@ -41,12 +36,12 @@
 
     <h3> Delete Engineer using EngineerID </h3>
 
-     <form:form action="deleteEngineer" modelAttribute="engineer" method="POST">
+     <form:form action="deleteMachine" modelAttribute="machine" method="POST">
 
                  <table>
                      <tbody>
                          <tr>
-                             <td><label>Engineer Id:</label></td>
+                             <td><label>Machine Id:</label></td>
                              <td><form:input path="id" /></td>
                          </tr>
 
