@@ -13,8 +13,6 @@ import java.util.List;
 @Repository
 public class EngineerDAOImpl implements EngineerDAO {
 
-
-
     private EntityManager entityManager;
 
     @Autowired
@@ -29,7 +27,7 @@ public class EngineerDAOImpl implements EngineerDAO {
         // 2. create a query
         // 3. execute query and get result list
         Session currentSession = entityManager.unwrap(Session.class);
-        Query<Engineer> theQuery = currentSession.createQuery("from Engineer order by lastName", Engineer.class);
+        Query<Engineer> theQuery = currentSession.createQuery("from Engineer order by id", Engineer.class);
         List<Engineer> engineers = theQuery.getResultList();
 
         return engineers;

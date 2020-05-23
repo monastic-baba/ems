@@ -11,14 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
-public class HomeController {
+@RequestMapping("/admin")
+public class InchargeController {
 
     @Autowired
     private EngineerService engineerService;
 
     @RequestMapping("/")
     public String hello() {
-        return "index";
+        return "incharge-home";
     }
 
     @RequestMapping("/welcome")
