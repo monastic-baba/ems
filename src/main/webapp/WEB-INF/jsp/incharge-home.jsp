@@ -20,5 +20,13 @@
         				   onclick="window.location.href='admin/addOrDeleteMachine'; return false;"
         				   class="add-button"
         			/>
+
+    <br> </br>
+
+         <p> Logout </p>
+             <input type="button" value="LOGOUT"
+                 				   onclick="window.location.href='logout'; return false;"
+                 				   class="add-button"
+                 			/>
 </body>
 </html>

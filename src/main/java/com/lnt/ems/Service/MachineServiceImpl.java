@@ -1,4 +1,3 @@
-// Implement the unimplemented methods
 package com.lnt.ems.Service;
 
 import java.util.List;
@@ -43,9 +42,8 @@ public class MachineServiceImpl implements MachineService {
         machineDAO.deleteMachine(theId);
     }
 
-    // TO BE IMPLEMENTED
     @Override
     public List<Machine> listAvailable() {
-        return null;
+        return machineDAO.listAvailable();
     }
 }

@@ -2,8 +2,10 @@ package com.lnt.ems.Controller;
 
 import com.lnt.ems.Entity.Engineer;
 import com.lnt.ems.Entity.Machine;
+import com.lnt.ems.Entity.Request;
 import com.lnt.ems.Service.EngineerService;
 import com.lnt.ems.Service.MachineService;
+import com.lnt.ems.Service.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,9 @@ public class InchargeController {
 
     @Autowired
     private MachineService machineService;
+
+    @Autowired
+    private RequestService requestService;
 
     @RequestMapping("")
     public String helloIncharge() {
@@ -63,7 +68,6 @@ public class InchargeController {
     public String machineAddForm(Model theModel){
 
         Machine newMachine = new Machine();
-
         theModel.addAttribute("machine", newMachine);
 
         return "machine-form";
@@ -80,11 +84,12 @@ public class InchargeController {
     @PostMapping("/saveMachine")
     public String saveMachine(@ModelAttribute("machine") Machine theMachine){
 
+        theMachine.setEngaged(false);
+        theMachine.setRequested(false);
         machineService.saveMachine(theMachine);
 
         return  "redirect:/admin/listMachines";
     }
-
 
 
 

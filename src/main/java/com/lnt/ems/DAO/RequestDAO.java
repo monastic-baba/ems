@@ -10,9 +10,9 @@ public interface RequestDAO {
     public Request getRequest(int theId);
     public void deleteRequest(int theId);
 
-    public List<Request> listApproved(int theEngineerId);
-    public List<Request> listRequested(int theEngineerId);
-    public List<Request> listRejected(int theEngineerId);
-    public List<Request> listClosed(int theEngineerId);
+    public List<Request> listApproved(int theEngineerId, String theStatus);
+    public List<Request> listRequested(int theEngineerId, String theStatus);
+    public List<Request> listRejected(int theEngineerId, String theStatus);
+    public List<Request> listClosed(int theEngineerId, String theStatus);
 
 }

@@ -1,7 +1,6 @@
 package com.lnt.ems.Entity;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name="requests")
@@ -20,14 +19,14 @@ public class Request {
 
     @Column(name="status")
     private String status;
-    // maybe one of {approved, rejected ,requested)
+    // maybe one of {approved, rejected ,requested, closed}
 
     @Column(name="urgency")
     private String urgency;
     // maybe one of {low, medium, high}
 
-    private Date startDate;
-    private Date endDate;
+    private String startDate;
+    private String endDate;
 
     public Request() {
     }
@@ -40,7 +39,7 @@ public class Request {
         this.urgency = "low";
     }
 
-    public Request(int id, int machineId, int engineerId, String status, String urgency, Date startDate, Date endDate) {
+    public Request(int id, int machineId, int engineerId, String status, String urgency, String startDate, String endDate) {
         this.id = id;
         this.machineId = machineId;
         this.engineerId = engineerId;
@@ -90,19 +89,19 @@ public class Request {
         this.urgency = urgency;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 

@@ -1,4 +1,3 @@
-//Implement the unimplemented methods
 package com.lnt.ems.DAO;
 
 import com.lnt.ems.Entity.Request;
@@ -66,27 +65,51 @@ public class RequestDAOImpl implements RequestDAO {
 
     }
 
-    // TO BE IMPLEMENTED
     @Override
-    public List<Request> listApproved(int theEngineerId) {
-        return null;
+    public List<Request> listApproved(int theEngineerId, String theStatus) {
+
+        Session currentSession = entityManager.unwrap(Session.class);
+        Query<Request> theQuery = currentSession.createQuery("from Request where status=:status and id=:engineerId", Request.class);
+        theQuery.setParameter("engineerId", theEngineerId);
+        theQuery.setParameter("status", theStatus);
+        List<Request> requests =  theQuery.getResultList();
+        return requests;
+
     }
 
-    // TO BE IMPLEMENTED
     @Override
-    public List<Request> listRequested(int theEngineerId) {
-        return null;
+    public List<Request> listRequested(int theEngineerId, String theStatus) {
+
+        Session currentSession = entityManager.unwrap(Session.class);
+        Query<Request> theQuery = currentSession.createQuery("from Request where status=:status and id=:engineerId", Request.class);
+        theQuery.setParameter("engineerId", theEngineerId);
+        theQuery.setParameter("status", theStatus);
+        List<Request> requests =  theQuery.getResultList();
+        return requests;
+
     }
 
-    // TO BE IMPLEMENTED
     @Override
-    public List<Request> listRejected(int theEngineerId) {
-        return null;
+    public List<Request> listRejected(int theEngineerId, String theStatus) {
+
+        Session currentSession = entityManager.unwrap(Session.class);
+        Query<Request> theQuery = currentSession.createQuery("from Request where status=:status and id=:engineerId", Request.class);
+        theQuery.setParameter("engineerId", theEngineerId);
+        theQuery.setParameter("status", theStatus);
+        List<Request> requests =  theQuery.getResultList();
+        return requests;
+
     }
 
-    // TO BE IMPLEMENTED
     @Override
-    public List<Request> listClosed(int theEngineerId) {
-        return null;
+    public List<Request> listClosed(int theEngineerId, String theStatus) {
+
+        Session currentSession = entityManager.unwrap(Session.class);
+        Query<Request> theQuery = currentSession.createQuery("from Request where status=:status and id=:engineerId", Request.class);
+        theQuery.setParameter("engineerId", theEngineerId);
+        theQuery.setParameter("status", theStatus);
+        List<Request> requests =  theQuery.getResultList();
+        return requests;
+
     }
 }

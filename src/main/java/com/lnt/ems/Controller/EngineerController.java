@@ -5,9 +5,7 @@ import com.lnt.ems.Service.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/user")
@@ -31,22 +29,19 @@ public class EngineerController {
     public String newRequestForm(Model theModel){
 
         Request newRequest = new Request();
-
         theModel.addAttribute("request", newRequest);
 
-        return "newrequest-form";
+        return "new-request-form";
     }
 
 
     @PostMapping("/createRequest")
     public String createRequest(@ModelAttribute("request") Request theRequest){
 
+        theRequest.setStatus("requested");
         requestService.createRequest(theRequest);
 
         return  "redirect:/user";
     }
-
-
-
 
 }

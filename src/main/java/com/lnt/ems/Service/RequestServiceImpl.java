@@ -1,4 +1,3 @@
-// Implement the unimplemented methods
 package com.lnt.ems.Service;
 
 import java.util.List;
@@ -13,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class RequestServiceImpl implements RequestService {
 
-    // need to inject Engineer DAO
+    // need to inject Request DAO
     @Autowired
     private RequestDAO requestDAO;
 
@@ -43,28 +42,26 @@ public class RequestServiceImpl implements RequestService {
         requestDAO.deleteRequest(theId);
     }
 
-    // TO BE IMPLEMENTED
+
     @Override
     public List<Request> listApproved(int theEngineerId) {
-        return null;
+        return requestDAO.listApproved(theEngineerId, "approved");
     }
 
-    // TO BE IMPLEMENTED
+
     @Override
     public List<Request> listRequested(int theEngineerId) {
-        return null;
+        return requestDAO.listRequested(theEngineerId, "requested");
     }
 
-    // TO BE IMPLEMENTED
     @Override
     public List<Request> listRejected(int theEngineerId) {
-        return null;
+        return requestDAO.listRejected(theEngineerId, "rejected");
     }
 
-    // TO BE IMPLEMENTED
     @Override
     public List<Request> listClosed(int theEngineerId) {
-        return null;
+        return requestDAO.listClosed(theEngineerId, "closed");
     }
 
 

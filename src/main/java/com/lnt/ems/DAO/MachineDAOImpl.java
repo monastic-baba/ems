@@ -66,9 +66,14 @@ public class MachineDAOImpl implements MachineDAO {
 
     }
 
-    // TO BE IMPLEMENTED
     @Override
     public List<Machine> listAvailable() {
-        return null;
+
+        Session currentSession = entityManager.unwrap(Session.class);
+        Query<Machine> theQuery = currentSession.createQuery("select c from Machine c  where c.isEngaged =:engageStatus", Machine.class);
+        theQuery.setParameter("engageStatus", false);
+        List<Machine> machines = theQuery.getResultList();
+
+        return machines;
     }
 }
